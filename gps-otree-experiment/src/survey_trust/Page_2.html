@@ -1,0 +1,27 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How dо you compare yourself to others?
+        </b>
+    </p>
+
+    <p>
+        In comparison to others are you a person who is generally willing to trust other people, or you are not willing
+        to trust others (in comparison to others)?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 represents "not willing to trust at all" and 10 represents "very willing to trust".
+        With the values in between you can grade your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

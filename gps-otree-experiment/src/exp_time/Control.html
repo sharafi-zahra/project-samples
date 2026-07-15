@@ -1,0 +1,56 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if wrong_answer == True }}
+        <p class="alert alert-danger">
+            <b>
+                Unfortunately you misunderstood something. Try it again.
+            </b>
+        </p>
+    {{ endif }}
+
+    <p>
+        Before you start making your decisions about a series of scenarios,
+        please briefly answer the two questions below. These questions are intended
+        to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose that the selected scenario is to choose between receiving 1600.0 points
+        today or 1747.2 points in 12 months.
+    </p>
+
+    {{ with label='If you decided to choose the payment today, how many points would you receive?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_A' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_A' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    {{ with label='If you decided to choose the payment in 12 months, how many points would you receive?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_B' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_B' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

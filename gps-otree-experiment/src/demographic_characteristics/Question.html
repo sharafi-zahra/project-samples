@@ -1,0 +1,67 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block title }}
+
+    Additional Questions
+
+{{ endblock }}
+
+
+
+{{ block content }}
+
+    {{ if 'prior_knowledge_source' in form }}
+
+        {{ formfield_errors 'prior_knowledge_source' }}
+
+        <div class="mb-3 _formfield">
+            <label for="id_prior_knowledge_source" class="col-form-label">
+                {{ form.prior_knowledge_source.label.text }}
+            </label>
+
+            <div class="controls">
+                {{ for choice in form.prior_knowledge_source.choices_ }}
+                    <div class="form-check">
+                        <input id="id_prior_knowledge_source-{{forloop.counter0}}" class="form-check-input" type="checkbox" value="{{ choice }}">
+                        <label for="id_prior_knowledge_source-{{forloop.counter0}}">
+                            {{ choice }}
+                        </label>
+                    </div>
+                {{ endfor }}
+            </div>
+        </div>
+        <input type="hidden" id="prior_knowledge_source" name="prior_knowledge_source" value="" required>
+
+    {{ else }}
+
+        {{ formfields }}
+
+    {{ endif }}
+
+    {{ next_button }}
+
+{{ endblock }}
+
+
+
+{{ block scripts }}
+
+    <script>
+        var hidden_input = document.getElementById('prior_knowledge_source');
+        var checks = document.getElementsByClassName('form-check-input');
+        for (let checkbox of checks) {
+            checkbox.addEventListener('change', (event) => {
+                var checked = [];
+                for(var i=0; checks[i]; ++i){
+                    if(checks[i].checked){
+                        checked.push(checks[i].value);
+                    }
+                }
+                var checkedStr = checked.join(' | ');
+                hidden_input.value = checkedStr
+           });
+        }
+    </script>
+
+{{ endblock }}

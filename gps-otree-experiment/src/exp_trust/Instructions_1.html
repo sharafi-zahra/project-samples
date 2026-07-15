@@ -1,0 +1,59 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <h3>
+        Instructions:
+    </h3>
+
+    <p>
+        In this experiment you and one of the other participants will both make a choice over how to use an amount of money and together your choices will determine the outcome. You and the other participant will be matched randomly. Neither you nor the other participant will ever know who they are matched to. Moreover, it is ensured that you and the other participant have not been matched in one of the preceding experiments and that you will not be matched again in any of the upcoming experiments.
+    </p>
+
+    <p>
+        In this experiment, each of you is assigned a role: either the role of the <b>sender</b> or of the <b>recipient</b>.
+    </p>
+
+    <p>
+        For the experiment, each participant is <b>endowed with 500 points</b>.
+    </p>
+
+    <p>
+        <b>The experiment has two stages:</b>
+    </p>
+
+    <p>
+        <b>In the first stage</b>, the sender can make a transfer to the recipient.
+    </p>
+
+    <p>
+        The transfer is an amount between 0 and 500 points, in increments of 50 points. Thus, the sender can transfer 0 points, 50 points, 100 points, ..., 450 points, or 500 points to the recipient. The amount transferred is
+        <b>doubled</b> by the people running the experiment.
+    </p>
+
+    <p>
+        For example, if the sender transfers 100 points, the recipient gets 200 points. If the sender transfers 200 points, the recipient gets 400 points. If the sender transfers 0 points, the recipient gets 0 points, etc.
+    </p>
+
+    <p>
+        Thus, at the end of the first stage, the recipient has his/her initial endowment plus twice the transfer that the sender made.
+
+    </p>
+
+    <p>
+        <b>In stage two</b>, the recipient can transfer back any amount to the sender. This back transfer will not be doubled.
+    </p>
+
+    <p>
+        The back transfer has to be an amount between 0 and 1500.
+    </p>
+
+    <p>
+        After the back transfer, the payments resulting from the experiment are determined.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

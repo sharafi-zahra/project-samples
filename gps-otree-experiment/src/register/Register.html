@@ -1,0 +1,86 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block title }}
+
+    Register
+
+{{ endblock }}
+
+
+
+{{ block content }}
+
+    {{ formfields }}
+
+    <div class="alert alert-secondary" style="margin-top: 2em;">
+        <span>Please click on Check Button and Wait!</span>
+        <button id="check-button" type="button" class="btn btn-primary check-button" onclick="checkID()">
+            <span id="check-button-loading-spinner" class="spinner-border spinner-border-sm" hidden></span>
+            <span>Check</span>
+        </button>
+    </div>
+
+{{ endblock }}
+
+
+
+{{ block scripts }}
+
+    <script>
+        function checkID() {
+            alert_element = document.getElementById('invalid-id-alert');
+            id_input_field = document.getElementById('id_id_');
+            check_button = document.getElementById('check-button');
+            loading_spinner = document.getElementById('check-button-loading-spinner');
+
+            liveSend(id_input_field.value);
+
+            if (alert_element != null) {
+                alert_element.remove();
+            }
+            id_input_field.disabled = true;
+            check_button.disabled = true;
+
+            loading_spinner.hidden = false;
+            check_button.lastElementChild.textContent = 'Checking...';
+        }
+
+        function liveRecv(message) {
+            if (message.code == 'invalid') {
+                alert_element = document.getElementById('invalid-id-alert');
+                if (alert_element != null) {
+                    alert_element.remove();
+                }
+
+                alert_element = document.createElement('div');
+                alert_element.id = 'invalid-id-alert';
+                alert_element.className = 'alert alert-danger';
+                alert_element.textContent = message.content;
+                document.getElementById('_otree-title').insertAdjacentElement("afterend", alert_element);
+
+                id_input_field = document.getElementById('id_id_');
+                check_button = document.getElementById('check-button');
+                loading_spinner = document.getElementById('check-button-loading-spinner');
+                id_input_field.disabled = false;
+                check_button.disabled = false;
+
+                loading_spinner.hidden = true;
+                check_button.lastElementChild.textContent = 'Check Again';
+            }
+            else if (message.code == 'procced') {
+                alert_element = document.getElementById('invalid-id-alert');
+                if (alert_element != null) {
+                    alert_element.remove();
+                }
+                id_input_field = document.getElementById('id_id_');
+                id_input_field.disabled = false;
+                document.getElementById("form").submit();
+            }
+            else {
+                console.log('Recieved invalid data from live_method!', message);
+            }
+        }
+    </script>
+
+{{ endblock }}

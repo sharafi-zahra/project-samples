@@ -1,0 +1,33 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            Please decide whether you choose the lottery or the sure payment!
+        </b>
+    </p>
+
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Scenario</th>
+                <th>Lottery</th>
+                <th>Sure payment</th>
+                <th>Your choice</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>{{ situation }}</td>
+            <td>50% chance of {{ lottery_prize.win }} and 50% chance of {{ lottery_prize.lose }}</td>
+            <td>{{ sure_price }}</td>
+            <td>{{ formfields }}</td>
+        </tr>
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,37 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>Here is an overview of all decisions that you will make shortly.</b>
+    </p>
+
+    <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Scenario</th>
+
+                {{ if current_condition == '0-12__1' }}
+                    <th>Payment today</th>
+                    <th>Payment in 12 months</th>
+                {{ elif current_condition == '0-12__2' }}
+                    <th>Payment today</th>
+                    <th>Payment in 12 months</th>
+                {{ endif }}
+            </tr>
+        </thead>
+
+        {{ for p1, p2 in point_lists }}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ p1 }} {{ currency }}</td>
+                <td>{{ p2 }} {{ currency }}</td>
+            </tr>
+        {{ endfor }}
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

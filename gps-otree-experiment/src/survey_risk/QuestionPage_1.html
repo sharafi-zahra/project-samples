@@ -1,0 +1,25 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+     <p>
+        <b>
+            How do you assess yourself?
+        </b>
+    </p>
+
+    <p>
+        Please tell me, in general, how willing or unwilling you are to take risks,
+        using a scale from 0 to 10, where 0 means you are “completely unwilling to
+        take risks” and 10 means you are “very willing to take risks”. You can
+        also use any number between 0 and 10 to indicate where you fall on the
+        scale, using 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

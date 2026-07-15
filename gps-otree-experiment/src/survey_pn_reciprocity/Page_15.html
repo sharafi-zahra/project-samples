@@ -1,0 +1,17 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How well do the following statements describe you as a person?
+        </b>
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

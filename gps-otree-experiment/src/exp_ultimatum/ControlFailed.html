@@ -1,0 +1,48 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <p>
+        Before you make your decisions, please briefly answer the following questions.
+    </p>
+
+    <p>
+        Suppose you are assigned the role of the sender.
+    </p>
+
+    {{ with label='What is the maximum number of points you may send to the recipient?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }}</mark></b></p>
+
+    {{ endwith }}
+
+    <p>
+        Now, suppose you send 50 points but the recipient wants to receive at least 100 points so that s/he is willing to accept the proposal.
+    </p>
+
+    {{ with label='How many points do you earn at the end of the experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='How many points does the recipient earn?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.C }}</mark></b></p>
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,22 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block title }} {{ endblock }}
+
+
+{{ block content }}
+
+    {{ if form.slider_form }}
+
+        {{ include 'global/survey_radio_slider.html' }}
+
+    {{ else }}
+
+        {{ formfields }}
+
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

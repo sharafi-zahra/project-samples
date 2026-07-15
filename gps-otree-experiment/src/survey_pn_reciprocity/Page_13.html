@@ -1,0 +1,60 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How would you decide?
+        </b>
+    </p>
+
+    <p>
+        Please consider what you would do in the following situation:
+    </p>
+
+    <p>
+        You and a person whom you do not know both have to make a decision about the allocation of money and together
+        you achieve an outcome.
+    </p>
+
+    <p>
+        The rules are the following: both of you get an account with 20 Euro. Thus, at first, both you and the other
+        person have 20 Euro each on their account.
+    </p>
+
+    <p>
+        The other person has to decide first. She can transfer money to your account. She can transfer any round
+        amount, i.e. 0 Euro, 1 Euro, 2 Euro, etc. up to 20 Euro.
+    </p>
+
+    <p>
+        Each Euro that the other person decides to transfer to you is tripled by the people conducting the study and
+        then credited to your account. Thus, after the first step, the other person has 20 Euro minus the amount she
+        transferred to you on her account. You, on the other hand, have 20 Euro plus three times the amount that was
+        transferred to you on your account.
+    </p>
+
+    <p>
+        Now you have to make a decision. You can transfer money back to the other person. You can transfer any amount
+        to the other person, i.e. 0 Euro, 1 Euro, 2 Euro, etc. up to 80 Euro depending on how much money is on your
+        account after receiving the transfer from the other person.
+    </p>
+
+    <p>
+        After this decision, the study is over, and the amounts on the two accounts are final.
+    </p>
+
+    <p>
+        The other person has 20 Euro minus the amount she transferred to you plus the amount you transferred back on
+        her account. You have 20 Euro plus three times the amount the other person transferred to you minus the
+        amount you transferred to the other person on your account. For a given transfer of the other person we
+        would now like to know how much money you would decide to transfer back.
+    </p>
+
+    {{ formfields }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

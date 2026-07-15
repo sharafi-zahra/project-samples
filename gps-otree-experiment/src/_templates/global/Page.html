@@ -1,0 +1,162 @@
+{{ extends "otree/Page.html" }}
+{{ load otree static }}
+
+
+{{ block title }}
+
+    {{ if 'exp_num' in subsession.__dir__() }}
+
+        Experiment No. {{ subsession.exp_num }}
+
+    {{ elif 'survey_num' in subsession.__dir__() }}
+
+        Survey No. {{ subsession.survey_num }}
+
+    {{ else }}
+
+        Untitled!
+
+    {{ endif }}
+
+{{ endblock }}
+
+
+{{ block global_styles  }}
+
+    <style>
+        .otree-body {
+            max-width: 1080px;
+            padding-bottom: 100px;
+        }
+
+        #_otree-title {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: solid rgb(70, 70, 70) 2px;
+        }
+
+        .form-check {
+            padding-left: 2em;
+        }
+
+        .table {
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        mark {
+            background-color: lightgreen;
+        }
+
+        .check-button {
+            position: absolute;
+            right: 1em;
+            top: 0.56em;
+        }
+
+        .otree-btn-next {
+            position: absolute;
+            right: 1em;
+            top: 0.56em;
+        }
+
+    </style>
+
+{{ endblock }}
+
+
+
+{{ block global_scripts  }}
+
+    <script>
+        ////////////////////// Remove some useless elements //////////////////////
+        var labels = document.getElementsByClassName("text-muted");
+        for (let element of labels) {
+            if (
+                element.tagName == "P" &&
+                element.previousElementSibling.tagName == "P" &&
+                element.parentElement.tagName == "DIV" &&
+                element.previousElementSibling.firstElementChild.tagName == "SMALL" &&
+                element.previousElementSibling.firstElementChild.textContent.trim() == ""
+            ) {
+                element.previousElementSibling.remove();
+            }
+        };
+    </script>
+
+    {{ if 'exp_num' in subsession.__dir__() }}
+
+        <script>
+            ////////////////////// Capitalize `points` span in forms //////////////////////
+
+            // var labels = document.getElementsByClassName("input-group-text");
+            // for (let element of labels) {
+            //     if (element.tagName == "SPAN" && element.textContent.toLowerCase() == 'points') {
+            //         const capitalized = element.textContent.charAt(0).toUpperCase() + element.textContent.slice(1);
+            //         element.textContent = capitalized;
+            //     }
+            // };
+        </script>
+
+    {{ else }}
+
+        <script>
+            ////////////////////// Change `points` span to real world currency (in surveys only) //////////////////////
+
+            var labels = document.getElementsByClassName("input-group-text");
+            for (let element of labels) {
+                if (element.tagName == "SPAN") {
+                    element.textContent = js_vars.survey_currency;
+                }
+            };
+        </script>
+
+    {{ endif }}
+
+    <script>
+        ////////////////////// Create Unit Span with `help_text` attribute of fields //////////////////////
+
+        var controls_divs = document.getElementsByClassName("controls");
+        for (let controls_div of controls_divs) {
+            input_element = controls_div.children[0];
+            help_text_element = controls_div.nextElementSibling;
+            if (
+                    input_element.className != "input-group input-group-narrow" &&
+                    input_element.className != "form-check form-check-inline" &&
+                    help_text_element != null &&
+                    help_text_element.textContent.length <= 16
+            ) {
+                var input_group_div = document.createElement('div');
+                input_group_div.className = "input-group input-group-narrow";
+                var unit_span = document.createElement('span');
+                unit_span.className = "input-group-text";
+
+                unit_span.textContent = help_text_element.textContent;
+                input_group_div.appendChild(input_element);
+                input_group_div.appendChild(unit_span);
+                controls_div.appendChild(input_group_div);
+                help_text_element.remove();
+            }
+        }
+    </script>
+
+    <script>
+        ////////////////////// Continue Button Box! //////////////////////
+
+        var next_buttons = document.getElementsByClassName("otree-btn-next");
+        for (let button of next_buttons) {
+            var next_button_div = document.createElement('div');
+            next_button_div.className = "alert alert-secondary";
+            next_button_div.style = "margin-top: 2em";
+
+            var force_click_span = document.createElement('span');
+            force_click_span.textContent = "Please click on Continue!";
+
+            button.parentElement.append(next_button_div);
+            next_button_div.appendChild(force_click_span);
+            button.textContent = "Continue";
+            next_button_div.appendChild(button);
+        }
+    </script>
+
+{{ endblock }}

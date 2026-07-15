@@ -1,0 +1,22 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            What do you think, how well do the following statements apply?
+        </b>
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 represents "doesn't apply at all" and 10 represents "applies fully".
+        With the values in between you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

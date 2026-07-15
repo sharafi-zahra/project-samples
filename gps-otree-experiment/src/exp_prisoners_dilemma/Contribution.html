@@ -1,0 +1,50 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+   <p>
+        What is your decision in stage 1 of the experiment?
+    </p>
+
+    <p>
+        As a reminder:
+    </p>
+
+    <p>
+        If both participants contribute, both will get 480 points. If neither contributes, both get 300 points. If one
+        contributes while the other does not contribute, the one who contributes gets 240 points, the other gets 540
+        points.
+
+    </p>
+
+    <p>
+        The table below provides a summary.
+    </p>
+
+    <table class="table table-bordered text-center align-middle">
+        <tr>
+            <th></th>
+            <th>Contribute</th>
+            <th>Don’t contribute</th>
+        </tr>
+        <tr>
+            <th>Contribute</th>
+            <td>480, 480</td>
+            <td>240, 540</td>
+        </tr>
+        <tr>
+            <th>Don’t contribute</th>
+            <td>540, 240</td>
+            <td>300, 300</td>
+        </tr>
+    </table>
+
+    <br>
+
+    {{ formfields }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

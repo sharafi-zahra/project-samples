@@ -1,0 +1,28 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <h3>
+        Instructions:
+    </h3>
+
+    {{ if current_condition == '0-12__1' }}
+        <p>
+            In the following scenarios, you will have the choice between a smaller payment sent to you via mail today,
+            and a larger payment sent to you via mail in 12 months.
+        </p>
+    {{ endif }}
+
+
+    {{ if current_condition == '0-12__2' }}
+        <p>
+            In the following scenarios, you will have the choice between a smaller payment sent to you via mail today,
+            and a larger payment sent to you via mail in 12 months.
+        </p>
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

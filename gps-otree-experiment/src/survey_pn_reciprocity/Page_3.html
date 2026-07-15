@@ -1,0 +1,27 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How do you believe the others assess you?
+        </b>
+    </p>
+
+    <p>
+        Do other people assess you as a person who goes out of their way to return a favor or help even if it is costly
+        or as a person who is not willing to do so?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 represents "not willing to incur costs to return a favor" and 10 represents
+        "very willing to incur costs to return a favor ". With the values in between you can grade your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

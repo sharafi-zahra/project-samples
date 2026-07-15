@@ -1,0 +1,54 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if wrong_answer == True }}
+        <p class="alert alert-danger">
+            <b>
+                Unfortunately you misunderstood something. Try it again.
+            </b>
+        </p>
+    {{ endif }}
+
+    <p>
+        Before you make your decision, please briefly answer the following two question. These questions are intended to
+        ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose you receive from us an amount of 300 points, which you can use to make a donation.
+    </p>
+
+    {{ with label='You decide to donate 300 points. How many points would you earn from this experiment?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_A' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_A' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    {{ with label='Suppose you decide to donate 0 points. How many points would you earn from this experiment?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_B' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_B' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

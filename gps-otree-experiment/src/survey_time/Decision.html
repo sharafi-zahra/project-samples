@@ -1,0 +1,32 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+    <p>
+        <b>
+            Please decide whether you choose the payment today or the payment in 12 months?
+        </b>
+    </p>
+
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Scenario</th>
+                <th>Payment today</th>
+                <th>Payment in 12 months</th>
+                <th>Your choice</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>{{ situation }}</td>
+            <td>{{ C.TODAY_FIXED_PRICE }}</td>
+            <td>{{ dated_price }}</td>
+            <td>{{ formfields }}</td>
+        </tr>
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

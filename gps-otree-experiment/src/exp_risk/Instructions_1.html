@@ -1,0 +1,75 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if round_number == 1 }}
+
+        <h3>
+            Instructions:
+        </h3>
+
+        <p>
+            In this experiment you choose between a <b>lottery</b> and a <b>sure payment</b>.
+        </p>
+
+        <p>
+            In what follows, you will face 21 scenarios. In each scenario, the lottery is the same but the sure payment
+            varies between scenarios.
+        </p>
+
+        <p>
+            The lottery gives you 1000 points with a 50 percent chance, and 0 points with a 50 percent chance.
+        </p>
+
+        <p>
+            The next screen will display all 21 scenarios. Then, each scenario will be shown separately and you will be
+            asked to decide between the sure payment and the lottery.
+        </p>
+
+        <p>
+            At the end, one of the 21 scenarios will be selected randomly by the computer. You will receive the payment
+            resulting from this scenario.
+        </p>
+
+        <p>
+            Depending on your decision in that scenario, you will either participate in the lottery or receive the sure
+            payment.
+        </p>
+
+        <p>
+            If you opted for the lottery, a computer will make the random draw.
+        </p>
+
+        <p>
+            You will receive your payment in cash at the end of the experiment.
+        </p>
+
+    {{ elif round_number == 2 }}
+
+        <h3>
+            Instructions:
+        </h3>
+
+        <p>
+            As before, you will again face a series of scenarios between a <b>lottery</b> and a <b>sure payment</b>.
+        </p>
+
+        <p>
+            In the following, you will be presented with 21 more scenarios. In every scenario, the lottery is the same,
+            but the sure payment varies.
+        </p>
+
+        <p>
+            At the end, one of the 21 scenarios will be randomly selected for you by the computer, which will then be
+            paid out to you based on your decision at the end of the experiment.
+        </p>
+
+    {{ else }}
+
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,29 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            What do you think, how <em>other people assess you</em>?
+        </b>
+    </p>
+
+    <p>
+        Do other people generally assess you as a person who is willing to give up
+        something today in order to benefit from that in the future or as
+        someone who is not willing to do so?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 means "completely unwilling to do so"
+        and 10 means "very willing to do so". With the values in between you can grade
+        your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

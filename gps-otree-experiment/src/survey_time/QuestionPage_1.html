@@ -1,0 +1,35 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            We now ask you for your willingness to act in a certain way.
+        </b>
+    </p>
+
+    <p>
+        Please again indicate your answer on a scale from 0 to 10.
+    </p>
+
+    <p>
+        A 0 means “completely unwilling to do so” and a 10 means “Very willing to do so”.
+    </p>
+
+    <p>
+        You can also use any number between 0 and 10 to indicate where you fall on the scale,
+        using 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10.
+    </p>
+
+    <p>
+        How willing are you to give up something that is beneficial for you today in order
+        to benefit more from that in the future?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

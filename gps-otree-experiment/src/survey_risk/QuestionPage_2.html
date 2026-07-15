@@ -1,0 +1,26 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How do you assess yourself <em>in comparison to others</em>?
+        </b>
+    </p>
+
+    <p>
+        Are you a person who is willing to take risks or do you try to avoid risks?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 means you are “completely unwilling to take risks” and 10 means
+        you are “very willing to take risks”. With the values in between you can grade your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

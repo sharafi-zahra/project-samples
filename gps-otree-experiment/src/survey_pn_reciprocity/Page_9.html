@@ -1,0 +1,26 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How would you assess your willingness to punish unfair behavior even if it is costly in the following contexts?
+        </b>
+    </p>
+
+    <p>
+        One can behave differently in various situations.
+    </p>
+
+    <p>
+        Please click a button on the scale where 0 means "not willing to incur costs to punish unfair behavior" and 10 means
+        "very willing to incur costs to punish unfair behavior". With the values in between, you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

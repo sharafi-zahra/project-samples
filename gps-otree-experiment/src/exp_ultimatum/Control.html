@@ -1,0 +1,71 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if wrong_answer == True }}
+        <p class="alert alert-danger">
+            <b>
+                Unfortunately you misunderstood something. Try it again.
+            </b>
+        </p>
+    {{ endif }}
+
+    <p>
+        Before you make your decisions, please briefly answer the following questions. These questions are intended to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose you are assigned the role of the sender.
+    </p>
+
+    {{ with label='What is the maximum number of points you may send to the recipient?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_A' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_A' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    <p>
+        Now, suppose you send 50 points but the recipient wants to receive at least 100 points so that s/he is willing to accept the proposal.
+    </p>
+
+    {{ with label='How many points do you earn at the end of the experiment?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_B' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_B' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    {{ with label='How many points does the recipient earn?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_C' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_C' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

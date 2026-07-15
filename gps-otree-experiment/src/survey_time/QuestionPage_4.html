@@ -1,0 +1,33 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How would you assess your willingness to give up something today in order
+            to benefit from that in the future in the following contexts?
+        </b>
+    </p>
+
+    <p>
+        One can behave differently in various situations.
+    </p>
+
+    <p>
+        How would you assess your willingness to give up something today in order to
+        benefit from that in the future in the following contexts?
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 means "not willing to do so" and
+        10 means "very willing to do so". With the values in between you can
+        grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

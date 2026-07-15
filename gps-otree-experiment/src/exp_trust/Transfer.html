@@ -1,0 +1,117 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block styles }}
+
+    {{ if player.role == 'recipient' }}
+        <style>
+            .col-form-label {
+                display: none;
+            }
+            .mb-3 {
+                margin-bottom: 0 !important;
+            }
+            .controls {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    {{ endif }}
+
+{{ endblock }}
+
+
+
+{{ block content }}
+
+    {{ if player.role == 'sender' }}
+
+    {{ else }}
+
+    {{ endif }}
+
+
+    {{ if player.role == 'sender' }}
+
+        <h3>
+            You are assigned the role of the sender!
+        </h3>
+
+        {{ formfields }}
+
+        <hr>
+
+        <h4>
+            Help
+        </h4>
+
+        <p>
+            Please indicate how much you want to transfer.
+        </p>
+
+        <p>
+            You can transfer any amount between 0 and 500 points, in increments of 50 points. You can thus transfer 0, 50, 100, 150, 200, 250, 300, 350, 400, 450, or 500 points.
+        </p>
+
+    {{ else }}
+
+        <h3>
+            You are assigned the role of the recipient!
+        </h3>
+
+        <p>
+            Since you do not know yet how much the sender transfers to you, you have to indicate how much you want to transfer back to the sender for every possible amount the sender can transfer to you.
+        </p>
+
+        {{ if player.round_number == 1 }}
+            <p>
+                The back transfer is an amount between 0 and 1500 points.
+            </p>
+        {{ elif player.round_number == 2 }}
+            <p>
+                The back transfer is an amount between 0 and 1500 points.
+            </p>
+        {{ elif player.round_number == 3 }}
+            <p>
+                The back transfer is an amount between 0 and 2000 points.
+            </p>
+        {{ elif player.round_number == 4 }}
+            <p>
+                The back transfer is an amount between 0 and 2000 points.
+            </p>
+        {{ endif }}
+
+        <table class="table table-bordered text-center align-middle">
+            <colgroup>
+                <col span="1" style="width: 30%;">
+                <col span="1" style="width: 40%;">
+                <col span="1" style="width: 30%;">
+            </colgroup>
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Suppose...</th>
+                    <th>The points at the end of the first stage are then</th>
+                    <th>How much do you transfer back?</th>
+                </tr>
+            </thead>
+
+            {{ for field in form }}
+
+                <tr>
+                    <td>the sender transfers {{ field.situation_data.sent }} points</td>
+                    <td>{{ field.situation_data.s }} points for the Sender and {{ field.situation_data.r }} points for you</td>
+                    <td>
+                        {{ formfield field }}
+                    </td>
+                </tr>
+
+            {{ endfor }}
+        </table>
+
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

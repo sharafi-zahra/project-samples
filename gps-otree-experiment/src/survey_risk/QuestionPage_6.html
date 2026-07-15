@@ -1,0 +1,26 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How likely is it, that...
+        </b>
+    </p>
+
+    <p>
+        You invest 5% of your annual income in a very speculative stock?
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 means "Very unlikely" and 10 means "Very likely".
+        With the values in between you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,26 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How do you assess your willingness to trust others in the following contexts?
+        </b>
+    </p>
+
+    <p>
+        One can behave differently in various situations.
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 represents "not willing to trust at all" and 10 represents "very willing to trust".
+        With the values in between you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

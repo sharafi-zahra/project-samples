@@ -1,0 +1,43 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if current_condition == '0-12__1' }}
+        <p>
+            <b>Please decide whether you choose the payment today or the payment in 12 months!</b>
+        </p>
+    {{ elif current_condition == '0-12__2' }}
+        <p>
+            <b>Please decide whether you choose the payment today or the payment in 12 months.</b>
+        </p>
+    {{ endif }}
+
+
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Scenario</th>
+                {{ if current_condition == '0-12__1' }}
+                    <th>Payment today</th>
+                    <th>Payment in 12 months</th>
+                {{ elif current_condition == '0-12__2' }}
+                    <th>Payment today</th>
+                    <th>Payment in 12 months</th>
+                {{ endif }}
+                <th>Your choice</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>{{ situation }}</td>
+            <td>{{ point_1 }} {{ currency }}</td>
+            <td>{{ point_2 }} {{ currency }}</td>
+            <td><div>{{ formfields }}</div></td>
+        </tr>
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

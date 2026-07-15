@@ -1,0 +1,31 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>Here you can see an overview of all decisions that you will make shortly.</b>
+    </p>
+
+    <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th width="50">Scenario</th>
+                <th>Payment today</th>
+                <th>Payment in 12 months</th>
+            </tr>
+        </thead>
+
+        {{ for dated_price in dated_prices }}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ C.TODAY_FIXED_PRICE }}</td>
+                <td>{{ dated_price }}</td>
+            </tr>
+        {{ endfor }}
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

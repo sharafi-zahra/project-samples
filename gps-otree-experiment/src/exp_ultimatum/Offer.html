@@ -1,0 +1,19 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <h4>
+        {{ if player.role == 'Sender' }}
+            You are assigned the role of the sender!
+        {{ else }}
+            You are assigned the role of the recipient!
+        {{ endif }}
+    </h4>
+
+    {{ formfields }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

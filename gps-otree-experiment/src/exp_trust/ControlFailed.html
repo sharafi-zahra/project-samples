@@ -1,0 +1,63 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <p>
+        Before you make your decisions, please briefly answer the following questions. As before, these questions are intended to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose you are the recipient. The sender makes a transfer of 150 points. In stage 2, you decide to transfer back 300 points.
+    </p>
+
+    {{ with label='How many points do you have at the end of this experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='How many point does the sender have?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }}</mark></b></p>
+
+    {{ endwith }}
+
+    <p>
+        Now, suppose you are the sender. You decide to transfer 0 points to the recipient. In stage 2, the recipient decides to transfer back 0 points.
+    </p>
+
+    {{ with label='How many points do you have at the end of the experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.C }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='How many points does the recipient have?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.D }}</mark></b></p>
+
+    {{ endwith }}
+
+    <p>
+        On the next screen you will be informed whether you are assigned the role of the sender or the recipient and you can make your choices.
+    </p>
+
+    <p>
+        If you have any questions, please let us know. We will come to you and answer them.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

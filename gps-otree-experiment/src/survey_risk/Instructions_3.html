@@ -1,0 +1,31 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>Here you can see an overview of all decisions that you will make shortly.</b>
+    </p>
+
+    <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Scenario</th>
+                <th>Lottery</th>
+                <th>Sure payment</th>
+            </tr>
+        </thead>
+
+        {{ for sure_price in sure_prices }}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>50% chance {{ C.LOTTERY_PRIZE.win }} and 50% chance {{ C.LOTTERY_PRIZE.lose }}</td>
+                <td>{{ sure_price }}</td>
+            </tr>
+        {{ endfor }}
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

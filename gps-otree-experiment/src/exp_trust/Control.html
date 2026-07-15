@@ -1,0 +1,93 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    {{ if wrong_answer == True }}
+        <p class="alert alert-danger">
+            <b>
+                Unfortunately you misunderstood something. Try it again.
+            </b>
+        </p>
+    {{ endif }}
+
+    <p>
+        Before you make your decisions, please briefly answer the following questions. As before, these questions are intended to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose you are the recipient. The sender makes a transfer of 150 points. In stage 2, you decide to transfer back 300 points.
+    </p>
+
+    {{ with label='How many points do you have at the end of this experiment?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_A' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_A' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    {{ with label='How many point does the sender have?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_B' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_B' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    <p>
+        Now, suppose you are the sender. You decide to transfer 0 points to the recipient. In stage 2, the recipient decides to transfer back 0 points.
+    </p>
+
+    {{ with label='How many points do you have at the end of the experiment?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_C' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_C' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    {{ with label='How many points does the recipient have?' }}
+
+        {{ if player.first_control_round }}
+
+            {{ formfield 'CP1_D' label=label}}
+
+        {{ else }}
+
+            {{ formfield 'CP2_D' label=label}}
+
+        {{ endif }}
+
+    {{ endwith }}
+
+    <p>
+        On the next screen you will be informed whether you are assigned the role of the sender or the recipient and you can make your choices.
+    </p>
+
+    <p>
+        If you have any questions, please let us know. We will come to you and answer them.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

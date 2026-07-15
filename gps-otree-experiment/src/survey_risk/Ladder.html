@@ -1,0 +1,31 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <h5>
+            Would you prefer the 50/50 chance or the amount of <b>{{ sure_price }}</b> as a sure payment?
+        </h5>
+    </p>
+
+    <table class="table table-bordered text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Lottery</th>
+                <th>Sure payment</th>
+                <th>Your choice</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>50% chance of receiving {{ C.LOTTERY_PRIZE.win }}, 50% chance of receiving {{ C.LOTTERY_PRIZE.lose }}</td>
+            <td>{{ sure_price }}</td>
+            <td>{{ formfields }}</td>
+        </tr>
+    </table>
+
+
+    {{ next_button }}
+
+{{ endblock }}

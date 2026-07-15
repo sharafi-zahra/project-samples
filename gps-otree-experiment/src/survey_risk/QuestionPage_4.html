@@ -1,0 +1,21 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        It's not always easy to assess yourself well. How sure are you that your
+        assessment of the last three questions is accurate?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 means "completely unsure" and
+        10 means "very sure". With the values in between you can grade your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

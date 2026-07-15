@@ -1,0 +1,24 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            The following statements characterize different attitudes towards
+            life and the future.
+        </b>
+    </p>
+
+    <p>
+        Please tell us to what extent you agree with each statement.
+        Please indicate your answer on a scale from 0 to 10. A 0 means
+        “does not apply at all” and a 10 means “applies fully”.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,108 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <h4>
+        Stage 1
+    </h4>
+
+    <p>
+        Both you and the other participant get 300 points.
+    </p>
+
+    <p>
+        Then, both participants can decide whether they contribute the 300 points to a project, or not.
+    </p>
+
+    <p>
+        If both contribute, both get <b>480 points</b> at the end of this stage.
+    </p>
+
+    <p>
+        If neither one contributes, both keep their <b>300 points</b>.
+    </p>
+
+    <p>
+        If one contributes and the other one keeps the points for him/herself, the one who contributes will get <b>240
+        points</b> at the end of this stage and the other one gets <b>540 points</b>.
+    </p>
+
+
+    <p>
+        Before continuing to the experiment, please briefly answer the following question.
+    </p>
+
+    {{ with label='If you contribute, but the other participant does not contribute, you get more points than the other participant.' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }}</mark></b></p>
+
+    {{ endwith }}
+
+    <hr>
+
+    <h4>
+        Stage 2
+    </h4>
+
+    <p>
+        In stage 2, you can reduce the other participant's payment by deducting points from him/her. Similarly, the
+        other participant can reduce your payment by deducting points from you.
+    </p>
+
+    <p>
+        If you decide to deduct  points from the other participant, his/her payment will be reduced by the amount of
+        points you deducted. If you decide not to deduct points from the other participant, his/her payment remains
+        unchanged.
+        Deducting points from the other participant is costly. Each point you deduct from the other player costs you one third of a point. Thus, if you deduct 3 points for example, you pay 1 point.  Of course, if you decide not to deduct points from the other participant, you do not incur any
+        costs.
+    </p>
+
+    <h4>
+        Your total payment from this experiment:
+    </h4>
+
+    <p>
+        Your total payment in points is determined by the payment from the first stage minus the points deducted from
+        you, minus the costs you incur for deducting points.
+    </p>
+
+    <p>
+        If you have any questions, please let us know. We will come to you and answer your questions.
+    </p>
+
+    <p>
+        Before you make your decisions, please briefly answer the following questions. As before, these questions are
+        intended to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose both you and the other participant decide to not contribute, and suppose the other participant deducts 60
+        points from you whereas you do not deduct any points from him/her.
+    </p>
+
+    {{ with label='How many points do you earn at the end of the experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='How many points does the other participant earn?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.C }}</mark></b></p>
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

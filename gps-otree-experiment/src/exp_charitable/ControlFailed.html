@@ -1,0 +1,38 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <p>
+        Before you make your decision, please briefly answer the following two question. These questions are intended to
+        ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose you receive from us an amount of 300 points, which you can use to make a donation.
+    </p>
+
+    {{ with label='You decide to donate 300 points. How many points would you earn from this experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='Suppose you decide to donate 0 points. How many points would you earn from this experiment?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }}</mark></b></p>
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

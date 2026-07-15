@@ -1,0 +1,104 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <h3>
+        Instructions:
+    </h3>
+
+    {{ if player.round_number == 1 }}
+        <p>
+            The <b>payments</b> for the sender and the recipient are calculated as follows:
+        </p>
+
+        <p>
+            <b>For the sender: 500 points - transfer + back-transfer</b>
+        </p>
+
+        <p>
+            <b>For the recipient: 500 points + 2 * transfer - back-transfer</b>
+        </p>
+
+        <p>
+            Example: Assume the sender makes a transfer of 150 points.
+        </p>
+
+        <p>
+            At the end of the first stage the sender has 500 - 150 = 350 points and the recipient has 500 + 2*150 = 800 points.
+        </p>
+
+        <p>
+            In stage two, the recipient chooses to transfer back 200 points.
+        </p>
+
+        <p>
+            Then, the payments are:
+        </p>
+
+        <p>
+            for the sender: 500 - 150 + 200 = 550 points.
+        </p>
+
+        <p>
+            for the recipient: 500 + 2*150 - 200 = 600 points.
+        </p>
+
+        <p>
+            On the next screen you will be informed whether you are assigned the role of the sender or the recipient and you can make your choices.
+        </p>
+
+        <p>
+            If you have any questions, please let us know. We will come to you and answer them.
+        </p>
+
+    {{ elif player.round_number == 2 }}
+        <p>
+            In this experiment, you and a different participant than before are randomly matched with each other by the computer. Neither you nor the other participant will ever know who they are matched to. In addition, it is ensured that you have not been matched to the other participant in any of the previous experiments, and that you will not be matched to the other participant in any of the following experiments.
+        </p>
+
+        <p>
+            <b>The same rules apply as in the previous experiment.</b>
+        </p>
+
+        <p>
+          A short summary: <br> Both participants receive 500 points. There is a sender and a recipient. The points transferred by the sender to the recipient will be doubled. The recipient can transfer points back to the sender that will not be doubled. If both participants have made their decisions, the payments from this experiment are determined accordingly.
+
+        </p>
+
+    {{ elif player.round_number == 3 }}
+        <p>
+            In this experiment, you and a different participant than before are randomly matched with each other by the computer. Neither you nor the other participant will ever know who they are matched to. In addition, it is ensured that you have not been matched with the other participant in any of the previous experiments, and that you will not be matched with the other participant in any of the following experiments.
+        </p>
+
+        <p>
+            <b>The only difference to the previous experiment is the following:</b>
+        </p>
+
+        <p>
+            The points that the sender transfers to the recipient are <b>tripled</b>, not doubled as before.
+        </p>
+
+        <p>
+            Again a short summary: Both participants receive 500 points. There is a sender and a recipient. The points transferred by the sender to the recipient will be tripled. The recipient can transfer points back to the sender that will not be tripled. If both participants have made their decisions, the payments from this experiment are determined accordingly.
+        </p>
+
+    {{ elif player.round_number == 4 }}
+        <p>
+            In this experiment, you and a different participant than before are randomly matched with each other by the computer. Neither you nor the other participant will ever know who they are matched to. In addition, it is ensured that you have not been matched with the other participant in any of the previous experiments, and that you will not be matched with the other participant in any of the following experiments.
+        </p>
+
+        <p>
+            <b>The same rules apply as in the previous experiment.</b>
+        </p>
+
+        <p>
+            Again a brief summary: Both participants receive 500 points. There is a sender and a recipient. The points transferred by the sender to the recipient will be tripled. The recipient can transfer points back to the sender that will not be tripled. If both participants have made their decisions, the payments from this experiment are determined accordingly.
+        </p>
+
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

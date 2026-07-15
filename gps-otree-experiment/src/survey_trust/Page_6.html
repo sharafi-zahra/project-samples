@@ -1,0 +1,21 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How often does it happen that...
+        </b>
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 represents "never" and 10 represents "very often". With the values in between you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

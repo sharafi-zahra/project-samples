@@ -1,0 +1,143 @@
+<style>
+    .borderless {
+        border: 0;
+        border-radius: 0;
+    }
+
+    .bordered {
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        margin-bottom: 2em;
+    }
+
+    .border-bottom {
+        border-bottom: 1px solid #ced4da;
+    }
+
+    .border-inline {
+        border-inline: 1px solid #ced4da;
+    }
+
+    .radio-slider-header {
+        text-align: center;
+        justify-content: center;
+
+        overflow: auto;
+        white-space: normal;
+    }
+
+    .radio-slider-group {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+
+        position: relative;
+    }
+
+    .radio-slider-left-label {
+        padding-inline: 5px;
+
+        /* display: block; */
+        position: absolute;
+        left: 0;
+        height: 100%;
+
+        width: 24%;
+
+        overflow: auto;
+        white-space: normal;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .radio-slider-right-label {
+        padding-inline: 10px;
+
+        position: absolute;
+        right: 0;
+        height: 100%;
+
+        width: 24%;
+
+        overflow: auto;
+        white-space: normal;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .radio-slider-options {
+        padding-right: 0%;
+        font-size: 75%;
+        max-width: 54%;
+
+        /* white-space: nowrap;
+        overflow: auto; */
+    }
+
+    ._formfield {
+        margin-bottom: 0 !important;
+    }
+
+    .col-form-label {
+        display: none;
+    }
+
+    .controls {
+        transform: translate(0, 0.25rem);
+    }
+
+</style>
+
+<!-- -------------------------------------------------------------------------------------------------------------- -->
+
+{{ for field in form }}
+
+    <div class="bordered">
+
+        {{ if field.label.text != "" }}
+            <div class="input-group-text radio-slider-header borderless border-bottom">
+                {{ field.label.text }}
+            </div>
+        {{ endif }}
+
+        <div class="radio-slider-group">
+
+            <div class="input-group-text radio-slider-left-label borderless">
+                {{ field.least_label }}
+            </div>
+
+            <div class="form-control radio-slider-options borderless border-inline">
+                {{ formfield field.name }}
+            </div>
+
+            <div class="input-group-text radio-slider-right-label borderless">
+                {{ field.most_label }}
+            </div>
+        </div>
+
+    </div>
+
+{{ endfor }}
+
+<!-- -------------------------------------------------------------------------------------------------------------- -->
+
+<script src="{{ static 'global/fittext.js' }}"></script>
+<script>
+    var labels = Array.prototype.concat.call(
+        Array.from(document.getElementsByClassName("radio-slider-header")),
+        Array.from(document.getElementsByClassName("radio-slider-right-label")),
+        Array.from(document.getElementsByClassName("radio-slider-left-label"))
+    );
+
+    for (let element of labels) {
+        window.fitText(
+            element,
+            1.5,
+            {'minFontSize': 11, 'maxFontSize': 15},
+        );
+    };
+</script>

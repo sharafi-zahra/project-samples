@@ -1,0 +1,22 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How well do the following statements describe you as a person?
+        </b>
+    </p>
+
+    <p>
+        Please click a button on the scale, where 0 means "does not apply at all" and 10 means
+        "applies fully". With the values in between you can grade your assessment.
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

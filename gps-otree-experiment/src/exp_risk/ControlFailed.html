@@ -1,0 +1,39 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <p>
+        Before you start making your decisions about the 21 described scenarios,
+        please briefly answer the two questions below. These questions are intended
+        to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose the selected scenario is to choose between the lottery and a sure payment of 450 points.
+    </p>
+
+    {{ with label='If you decided to choose the lottery, what is the chance that you would get 1000 points?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }}</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='If you decide to choose the sure payment, how many points would you receive?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }}</mark></b></p>
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,175 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block title }}
+
+    Payoff
+
+{{ endblock }}
+
+
+{{ block content }}
+
+    <h4>
+        Thank you for participating in this experiment!
+    </h4>
+
+    <br>
+
+    <div class="alert alert-dark text-center">
+        <h5>
+            <b>
+                Your ID: {{ participant.label }}
+            </b>
+        </h5>
+    </div>
+
+    <table class="table table-bordered text-center align-middle">
+        <tr>
+            <th class="table-dark" colspan="2">
+                {{ if 'exp_time' in session.config.app_sequence }}
+                    Your payment from experiment[s] (Not including the "Time" experiment)
+                {{ else }}
+                    Your payment from experiment[s]
+                {{ endif }}
+            </th>
+        </tr>
+
+        <tr>
+            <th class="table-dark">
+                Participation fee
+            </th>
+            <td>
+                <h5>
+                    {{ general_payments.participation_fee }}
+                </h5>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="table-dark">
+                Earnings
+            </th>
+            <td>
+                <h5>
+                    <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ general_payments.payoff.point }}">{{ general_payments.payoff.real_currency }}</span>
+                </h5>
+            </td>
+        </tr>
+
+        <tr>
+            <th class="table-dark">
+                Sum
+            </th>
+            <td>
+                <h5>
+                    {{ general_payments.sum }}
+                </h5>
+            </td>
+        </tr>
+    </table>
+
+
+    {{ if exp_time_payments != None }}
+
+        <table class="table table-bordered text-center align-middle">
+            <colgroup>
+                <col>
+                <col style="width: 20%;">
+                <col style="width: 20%;">
+                <col style="width: 20%;">
+            </colgroup>
+
+            <tr class="table-dark">
+                <th colspan="3">
+                    Your payment from the "Time" experiment (Scheduled payments)
+                </th>
+                <th>
+                    Sum
+                </th>
+            </tr>
+
+            <tr>
+                <th class="table-dark">
+                    Today
+                </th>
+                {{ for payment in exp_time_payments.0 }}
+                    <td>
+                        <h5>
+                            {{ if payment != None }}
+                                <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ payment.point }}">{{ payment.real_currency }}</span>
+                            {{ endif }}
+                        </h5>
+                    </td>
+                {{ endfor }}
+
+                <td>
+                    <h5>
+                        <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ exp_time_payments.sum.0.point }}">{{ exp_time_payments.sum.0.real_currency }}</span>
+                    </h5>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th class="table-dark">
+                    In 12 months
+                </th>
+                {{ for payment in exp_time_payments.12 }}
+                    <td>
+                        <h5>
+                            {{ if payment != None }}
+                                <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ payment.point }}">{{ payment.real_currency }}</span>
+                            {{ endif }}
+                        </h5>
+                    </td>
+                {{ endfor }}
+
+                <td class='table-total'>
+                    <h5>
+                        <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ exp_time_payments.sum.12.point }}">{{ exp_time_payments.sum.12.real_currency }}</span>
+                    </h5>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="table-secondary" colspan="3"></td>
+                <td>
+                    <h5>
+                        <span tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right" title="{{ exp_time_payments.sum.all.point }}">{{ exp_time_payments.sum.all.real_currency }}</span>
+                    </h5>
+                </td>
+            </tr>
+
+        </table>
+
+    {{ endif }}
+
+    <div class="alert alert-primary text-center">
+        <h5>
+            Your total payment for today: {{ total_payoff.today }}
+        </h5>
+    </div>
+
+    {{ if exp_time_payments != None }}
+        <div class="alert alert-secondary text-center">
+            <h5>
+                Your total payment for 12 months later: {{ total_payoff.future }}
+            </h5>
+        </div>
+    {{ endif }}
+
+{{ endblock }}
+
+
+{{ block scripts }}
+
+    <script>
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
+    </script>
+
+{{ endblock }}

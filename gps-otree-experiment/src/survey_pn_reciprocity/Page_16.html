@@ -1,0 +1,26 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            Imagine the following scenario:
+        </b>
+    </p>
+
+    <p>
+        A business in a city with a high level of unemployment makes profits despite a recession. The enterprise's
+        chairman announces a decision to cut all wages and salaries by 5%. How fair do you think is this decision?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 represents "absolutely unfair" and 10 represents
+        "absolutely fair". With the values in between you can grade your assessment.
+    </p>
+
+    {{ next_button }}
+
+{{ endblock }}

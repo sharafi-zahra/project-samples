@@ -1,0 +1,40 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p class="alert alert-danger">
+        <b>
+            Unfortunately you misunderstood something. The correct answers would have been:
+        </b>
+    </p>
+
+    <p>
+        Before you start making your decisions about the 25 described scenarios,
+        please briefly answer the two questions below. These questions are intended
+        to ensure that you understand the experiment correctly.
+    </p>
+
+    <p>
+        Suppose that the selected scenario is to choose between receiving 1600.0 points
+        today or 1747.2 points in 12 months.
+    </p>
+
+    {{ with label='If you decided to choose the payment today, how many points would you receive?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.A }} &nbsp; points</mark></b></p>
+
+    {{ endwith }}
+
+    {{ with label='If you decided to choose the payment in 12 months, how many points would you receive?' }}
+
+        <p>{{ label }}</p>
+        <p><b><mark>{{ C.CONTROL_CORRECT_ANSWERS.B }} &nbsp; points</mark></b></p>
+
+    {{ endwith }}
+
+
+    {{ next_button }}
+
+{{ endblock }}

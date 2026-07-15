@@ -1,0 +1,27 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <p>
+        <b>
+            How dо you compare yourself to others?
+        </b>
+    </p>
+
+    <p>
+        In comparison to others, are you a person who goes out of their way to return a favor or help even if it is costly,
+        or are you not willing to do so (in comparison to others)?
+    </p>
+
+    {{ include 'global/survey_radio_slider.html' }}
+
+    <p>
+        Please click a button on the scale, where 0 represents "not willing to incur costs to return a favor" and 10 represents
+        "very willing to incur costs to return a favor ". With the values in between you can grade your assessment.
+    </p>
+
+
+    {{ next_button }}
+
+{{ endblock }}

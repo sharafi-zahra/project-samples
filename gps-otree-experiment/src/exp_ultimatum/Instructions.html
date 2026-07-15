@@ -1,0 +1,114 @@
+{{ extends "global/Page.html" }}
+
+
+{{ block content }}
+
+    <h3>
+        Instructions:
+    </h3>
+
+    {{ if player.round_number == 1 }}
+        <p>
+            In this experiment, you and another participant are randomly matched. Neither you nor the other participant
+            will ever know who they are matched to. In addition, it is ensured that you have not been matched with
+            the other participant in any of the previous experiments, and that you will not be matched with the
+            other participant in any of the following experiments.
+        </p>
+
+        <p>
+            You and the other participant are each assigned one of two roles: the role of the <b>sender</b> or the role of the
+              <b>recipient</b>. The experiment is about splitting an amount of 500 points between the sender and the recipient.
+        </p>
+
+        <p>
+            The <b>sender</b> makes a proposal about <b>how the 500 points should be split</b> between him/her and the recipient.
+        </p>
+
+        <p>
+            To this end, the sender indicates how many points s/he wants to send to the recipient.
+        </p>
+
+        <p>
+            The <b>recipient</b> decides whether s/he <b>accepts or rejects</b> the proposal about how to divide the points.
+        </p>
+
+        <p>
+            To this end, the recipient has to indicate how many points s/he at least wants to receive so that s/he is willing to accept
+            the proposed division of points. The recipient will make this decision before knowing the actual proposal of the sender.
+        </p>
+
+        <p>
+            If the amount of points that the sender sends to the recipient is larger or equal to the minimum amount that the recipient
+            is willing to accept, the proposal about the division of points made by the sender will be implemented.
+        </p>
+
+        <p>
+            Conversely, the proposal made by the sender will be rejected in case the amount of points the sender sends to the recipient
+            is smaller than the minimum amount that the recipient is willing to accept.
+        </p>
+
+        <p>
+            After both the sender and the recipient have made their decisions, the decisions are compared.
+        </p>
+
+        <p>
+            If the recipient is willing to <b>accept</b> the proposal about the division of the points made by the sender, the amount
+            of points is split between the two according to the proposal of the sender. If the recipient is <b>not</b> willing
+            to accept the proposal, both the sender and the recipient <b>receive 0 points</b>.
+        </p>
+
+        <p>
+            Please read the instructions again to make sure you understand everything. If anything is unclear, please let us know.
+            We will come to you and answer your question.
+        </p>
+
+    {{ else }}
+        <p>
+            In this experiment, you will be randomly matched to a <b>different participant</b> than before. Neither you nor the other
+            participant will ever know who they are matched to. In addition, it is ensured that you have not been matched with the
+            other participant in any of the previous experiments, and that you will not be matched with the other participant in
+            any of the following experiments.
+        </p>
+
+        <p>
+            As with the experiment before, each of you is assigned a role: you are either sender or recipient. <b>As before, the same rules apply:</b>
+        </p>
+
+        <p>
+            The sender makes a proposal for the division of an amount of 500 points and the recipient decides whether to accept or reject the proposal.
+        </p>
+
+        <p>
+            The recipient indicates the minimum amount of points from which s/he accepts the division proposed by the sender.
+        </p>
+
+        <p>
+            If the amount of points that the sender sends to the recipient is larger or equal to the minimum amount that the recipient is willing to
+            accept, the proposal about the division of points made by the sender will be implemented.
+        </p>
+
+        <p>
+            Conversely, the proposal made by the sender will be rejected in case the amount of points the sender sends to the recipient is
+            smaller than the minimum amount that the recipient is willing to accept.
+        </p>
+
+        <p>
+            After both the sender and the recipient have made their decisions, the decisions are compared.
+        </p>
+
+        <p>
+            If the recipient is willing to <b>accept</b> the proposal about the division of the points made by the sender, the amount of
+            points is split between the two according to the proposal of the sender. If the recipient is <b>not</b> willing to accept the
+            proposal, <b>both</b> the sender and the recipient <b>receive 0 points</b>.
+        </p>
+
+        <p>
+            If anything is still unclear, please let us know. We will then come to you and answer your questions.
+        </p>
+
+    {{ endif }}
+
+
+    {{ next_button }}
+
+{{ endblock }}
